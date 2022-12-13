@@ -1,16 +1,16 @@
-# Arbitrary Message Bridge for Counter SC
+# Simple Arbitrary Message Bridge for Counter SC
+
+Relaying increments of a counter between two EVM blockchains. Example is using Mumbai -> Mumbai configuration.
 
 ### Prerequisites:
 - NodeJS v16+   
 - Truffle v5.6.5   
 - Two wallets, for AMB role and ADMIN role  
   
-Optional for automatic relay:  
+Automatic relay:  
 - Rust v1.65+   
 - One more wallet for DAPP role   
   
-Everything is so far pre-configured for Polygon testnet (Mumbai)  
-
 ### Deploy Smart Contracts:
 cd amb   
 edit env.example and rename to .env   
@@ -20,15 +20,15 @@ Make a note of contract addresses
 ### Run Tests:  
 npm run test
 
-### Build Relayer (optional):  
+### Build Relayer:  
 npm run build      
 Edit relayer/env.relayer.example rename to relayer/.env.relayer   
 
-### Run Relayer (optional):    
+### Start Relayer Process:    
 npm run relayer  
 
-### Increment Counter N1 (optional and occasional :):    
-open different shell console     
+### Increment Counter N1:    
+open new shell console     
 npm run increment   
->Magic should happen!  
+>Magic should happen at N2!  
 
