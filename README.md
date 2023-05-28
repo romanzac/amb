@@ -21,6 +21,7 @@ Make a note of contract addresses
 npm run test
 
 ### Build Relayer:  
+npm run compile (if not done in previous steps)   
 npm run build      
 Edit relayer/env.relayer.example rename to relayer/.env.relayer   
 

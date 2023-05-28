@@ -1,4 +1,4 @@
-use config::{ConfigError, Config, Environment};
+use config::{Config, ConfigError, Environment};
 
 #[derive(Debug, Deserialize)]
 pub struct Relayer {
@@ -31,36 +31,78 @@ impl Settings {
         s.merge(Environment::with_prefix("r"))?;
 
         // Relayer settings
-        s.set("r.n1_rpc_url", s.get::<String>("n1_rpc_url")
-            .unwrap_or_else(|_| "n1_rpc_url is missing".into()))?;
-        s.set("r.n1_chain_id", s.get::<String>("n1_chain_id")
-            .unwrap_or_else(|_| "n1_chain_id is missing".into()))?;
-        s.set("r.n2_rpc_url", s.get::<String>("n2_rpc_url")
-            .unwrap_or_else(|_| "n2_rpc_url is missing".into()))?;
-        s.set("r.n2_chain_id", s.get::<String>("n2_chain_id")
-            .unwrap_or_else(|_| "n2_chain_id is missing".into()))?;
-        s.set("r.n1_gas_price", s.get::<String>("n1_gas_price")
-            .unwrap_or_else(|_| "n1_gas_price is missing".into()))?;
-        s.set("r.n1_gas_limit", s.get::<String>("n1_gas_limit")
-            .unwrap_or_else(|_| "n1_gas_limit is missing".into()))?;
-        s.set("r.n2_gas_price", s.get::<String>("n2_gas_price")
-            .unwrap_or_else(|_| "n2_gas_price is missing".into()))?;
-        s.set("r.n2_gas_limit", s.get::<String>("n2_gas_limit")
-            .unwrap_or_else(|_| "n2_gas_limit is missing".into()))?;
+        s.set(
+            "r.n1_rpc_url",
+            s.get::<String>("n1_rpc_url")
+                .unwrap_or_else(|_| "n1_rpc_url is missing".into()),
+        )?;
+        s.set(
+            "r.n1_chain_id",
+            s.get::<String>("n1_chain_id")
+                .unwrap_or_else(|_| "n1_chain_id is missing".into()),
+        )?;
+        s.set(
+            "r.n2_rpc_url",
+            s.get::<String>("n2_rpc_url")
+                .unwrap_or_else(|_| "n2_rpc_url is missing".into()),
+        )?;
+        s.set(
+            "r.n2_chain_id",
+            s.get::<String>("n2_chain_id")
+                .unwrap_or_else(|_| "n2_chain_id is missing".into()),
+        )?;
+        s.set(
+            "r.n1_gas_price",
+            s.get::<String>("n1_gas_price")
+                .unwrap_or_else(|_| "n1_gas_price is missing".into()),
+        )?;
+        s.set(
+            "r.n1_gas_limit",
+            s.get::<String>("n1_gas_limit")
+                .unwrap_or_else(|_| "n1_gas_limit is missing".into()),
+        )?;
+        s.set(
+            "r.n2_gas_price",
+            s.get::<String>("n2_gas_price")
+                .unwrap_or_else(|_| "n2_gas_price is missing".into()),
+        )?;
+        s.set(
+            "r.n2_gas_limit",
+            s.get::<String>("n2_gas_limit")
+                .unwrap_or_else(|_| "n2_gas_limit is missing".into()),
+        )?;
 
-        s.set("r.dapp_mnemonic", s.get::<String>("dapp_mnemonic")
-            .unwrap_or_else(|_| "dapp_mnemonic is missing".into()))?;
-        s.set("r.dapp_address", s.get::<String>("dapp_address")
-            .unwrap_or_else(|_| "dapp_address is missing".into()))?;
-        s.set("r.amb_mnemonic", s.get::<String>("amb_mnemonic")
-            .unwrap_or_else(|_| "amb_mnemonic is missing".into()))?;
-        s.set("r.amb_address", s.get::<String>("amb_address")
-            .unwrap_or_else(|_| "amb_address is missing".into()))?;
+        s.set(
+            "r.dapp_mnemonic",
+            s.get::<String>("dapp_mnemonic")
+                .unwrap_or_else(|_| "dapp_mnemonic is missing".into()),
+        )?;
+        s.set(
+            "r.dapp_address",
+            s.get::<String>("dapp_address")
+                .unwrap_or_else(|_| "dapp_address is missing".into()),
+        )?;
+        s.set(
+            "r.amb_mnemonic",
+            s.get::<String>("amb_mnemonic")
+                .unwrap_or_else(|_| "amb_mnemonic is missing".into()),
+        )?;
+        s.set(
+            "r.amb_address",
+            s.get::<String>("amb_address")
+                .unwrap_or_else(|_| "amb_address is missing".into()),
+        )?;
 
-        s.set("r.counter_n1", s.get::<String>("counter_n1")
-            .unwrap_or_else(|_| "counter_n1 is missing".into()))?;
-        s.set("r.counter_n2", s.get::<String>("counter_n2")
-            .unwrap_or_else(|_| "counter_n2 is missing".into()))?;
+        s.set(
+            "r.counter_n1",
+            s.get::<String>("counter_n1")
+                .unwrap_or_else(|_| "counter_n1 is missing".into()),
+        )?;
+        s.set(
+            "r.counter_n2",
+            s.get::<String>("counter_n2")
+                .unwrap_or_else(|_| "counter_n2 is missing".into()),
+        )?;
 
         // Deserialize / freeze configuration
         s.try_into()
